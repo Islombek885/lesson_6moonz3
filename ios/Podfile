@@ -1,0 +1,22 @@
+# Uncomment this line to define a global platform for your project
+platform :ios, '12.0'
+
+ENV['COCOAPODS_DISABLE_STATS'] = 'true'
+
+project 'Runner', {
+  'Debug' => :debug,
+  'Profile' => :release,
+  'Release' => :release,
+}
+
+def flutter_installation
+  flutter_root = File.expand_path(File.join(__dir__, '..'))
+  File.join(flutter_root, 'bin', 'flutter')
+end
+
+# require File.expand_path(File.join(__dir__, 'Flutter', 'podhelper.rb'))
+
+target 'Runner' do
+  use_frameworks!
+  install_all_flutter_pods(flutter_installation)
+end
